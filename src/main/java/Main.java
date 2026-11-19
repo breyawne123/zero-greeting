@@ -1,5 +1,8 @@
 import zero.App;
 import zero.ui.Label;
+import zero.ui.Button;
+import zero.ui.Column;
+
 
 public class Main extends App {
     @Override public void settings() {
@@ -11,7 +14,10 @@ public class Main extends App {
 
     @Override public void setup() {
         Label greeting = new Label("Hello, Java!");
-        show(greeting);
+        Button button = new Button("Say hello");
+        button.onClick(() -> greeting.setText("You did it!"));
+        show(new Column(10, greeting, button));
+
     }
 
     public static void main(String[] args) { launch(args); }
